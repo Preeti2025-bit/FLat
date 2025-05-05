@@ -25,9 +25,17 @@ public class SignUpService {
         return signUpRepoistory.findAll();
     }
 
-    public Optional<Signup> getSignUpById(String mobileNumber) {
-        return signUpRepoistory.findById(mobileNumber);
+    // public Optional<Signup> getSignUpByMobile(String mobileNumber) {
+    //     return signUpRepoistory.findBymobileNumber(mobileNumber);
+    // }
+    public Optional<Signup> getSignUpByMobile(String mobileNumber) {
+        return signUpRepoistory.findByMobileNumber(mobileNumber);
     }
+    
+    public void deleteSignUp(String mobileNumber) {
+        signUpRepoistory.deleteByMobileNumber(mobileNumber);
+    }
+    
     @Transactional
     public Signup saveSignUp(Signup signup) {
         return signUpRepoistory.save(signup);
@@ -37,7 +45,9 @@ public class SignUpService {
     //     return bookRepository.createBook(book);
     // }
 
-    public void deleteSignUp(String mobileNumber) {
-        signUpRepoistory.deleteById(mobileNumber);
-    }
+    // public void deleteSignUp(String mobileNumber) {
+    //     signUpRepoistory.deleteById(mobileNumber);
+    // }
+
+
 }

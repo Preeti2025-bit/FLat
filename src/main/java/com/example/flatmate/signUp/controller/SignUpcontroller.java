@@ -30,13 +30,18 @@ public class SignUpcontroller {
         return signUpService.getAllSignUp();
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Signup> getSignUpById(@PathVariable String id) {
-        return signUpService.getSignUpById(id)
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
-    }
-
+    // @GetMapping("/{id}")
+    // public ResponseEntity<Signup> getSignUpById(@PathVariable String id) {
+    //     return signUpService.getSignUpById(id)
+    //             .map(ResponseEntity::ok)
+    //             .orElse(ResponseEntity.notFound().build());
+    // }
+@GetMapping("/mobile/{mobileNumber}")
+public ResponseEntity<Signup> getSignUpByMobile(@PathVariable String mobileNumber) {
+    return signUpService.getSignUpByMobile(mobileNumber)
+            .map(ResponseEntity::ok)
+            .orElse(ResponseEntity.notFound().build());
+}
     @PostMapping
     public Signup createBook(@RequestBody Signup signup) {
         return signUpService.saveSignUp(signup);
