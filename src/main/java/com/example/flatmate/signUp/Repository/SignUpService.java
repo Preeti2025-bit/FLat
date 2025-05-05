@@ -31,7 +31,7 @@ public class SignUpService {
     public Optional<Signup> getSignUpByMobile(String mobileNumber) {
         return signUpRepoistory.findByMobileNumber(mobileNumber);
     }
-    
+    @Transactional
     public void deleteSignUp(String mobileNumber) {
         signUpRepoistory.deleteByMobileNumber(mobileNumber);
     }

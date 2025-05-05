@@ -47,9 +47,9 @@ public ResponseEntity<Signup> getSignUpByMobile(@PathVariable String mobileNumbe
         return signUpService.saveSignUp(signup);
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteSignup(@PathVariable String id) {
-        signUpService.deleteSignUp(id);
+    @DeleteMapping("/mobile/{mobileNumber}")
+    public ResponseEntity<Void> deleteSignup(@PathVariable String mobileNumber) {
+        signUpService.deleteSignUp(mobileNumber);
         return ResponseEntity.noContent().build();
     }
 }
