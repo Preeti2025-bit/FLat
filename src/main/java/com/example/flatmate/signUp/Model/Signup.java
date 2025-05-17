@@ -27,7 +27,7 @@ public class Signup {
     @Column(name = "emailId")
     private String emailId;
 
-    @Column(name = "mobileNumber", nullable = false, unique = true)
+    @Column(name = "mobile_number", nullable = false, unique = true)
     private String mobileNumber;
     public String getFirstname() {
         return firstname;
